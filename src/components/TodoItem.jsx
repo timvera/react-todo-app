@@ -1,7 +1,8 @@
-export default function TodoItem() {
+
+export default function TodoItem({ task }) {
   return (
     <div className="todo-item">
-      <span>📌 Learn React Components</span>
+      <span>📌 {task}</span>
 
       <button>🗑️</button>
     </div>
