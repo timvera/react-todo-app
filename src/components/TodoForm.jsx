@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-export default function TodoForm() {
+export default function TodoForm({ setTasks }) {
   const [task, setTask] = useState("");
 
   function handleSubmit() {
-  setTask("");
-}
+    if (task.trim() === "") {
+      return;
+    }
+
+    setTasks((previousTasks) => [...previousTasks, task]);
+
+    setTask("");
+  }
 
   return (
     <section className="todo-form">
@@ -17,8 +23,6 @@ export default function TodoForm() {
       />
 
       <button onClick={handleSubmit}>Add Task</button>
-
-      <p>{task}</p>
     </section>
   );
 }
