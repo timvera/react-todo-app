@@ -13,7 +13,7 @@ export default function App() {
     <main className="app-container">
       <Header />
       <TodoForm setTasks={setTasks} />
-      <TodoList />
+      <TodoList tasks={tasks} />
       <Footer />
     </main>
   );
