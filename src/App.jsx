@@ -9,11 +9,17 @@ import Footer from "./components/Footer";
 export default function App() {
   const [tasks, setTasks] = useState([]);
 
+  function handleDelete(taskToDelete) {
+    setTasks((previousTasks) =>
+      previousTasks.filter((task) => task !== taskToDelete)
+    );
+  }
+
   return (
     <main className="app-container">
       <Header />
       <TodoForm setTasks={setTasks} />
-      <TodoList tasks={tasks} />
+      <TodoList tasks={tasks} onDelete={handleDelete} />
       <Footer />
     </main>
   );
